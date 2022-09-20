@@ -11,8 +11,7 @@
   let error = false;
 
   // @ts-ignore
-  if (userLocal.token.toLowerCase().includes(BannedTokens.token.toLowerCase()))
-  {
+  if (BannedTokens.token.indexOf(userLocal.token) !== -1) {
     error = true;
   }
 
@@ -21,22 +20,23 @@
 <main>
 
 {#if error}
- <Error />
-{/if}
-
-{#if userLocal.loggedIn == true}
-  <Sample />
-{:else if userLocal.loggerIn == false}
-  <Login />
+ <Error errorCode="undefined" />
 {:else}
-  <script>
+  {#if userLocal.loggedIn == true}
+    <Sample />
+  {:else if userLocal.loggerIn == false}
+    <Login />
+  {:else}
+    <script>
 
-    let SendUserBackToWhereTheyShouldBe = () => window.location.assign('http://' + window.location.host);
-    SendUserBackToWhereTheyShouldBe();
+      let SendUserBackToWhereTheyShouldBe = () => window.location.assign('http://' + window.location.host);
+      SendUserBackToWhereTheyShouldBe();
 
-    /*
-      Now this is functional programming!
-    */
-  </script>
+      /*
+        Now this is functional programming!
+      */
+    </script>
+  {/if}
 {/if}
+
 </main>
