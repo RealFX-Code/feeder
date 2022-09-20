@@ -9,10 +9,12 @@
   user.subscribe(value=>{userLocal=value;});
 
   let error = false;
+  let errorDescription = "undefined";
 
   // @ts-ignore
   if (BannedTokens.token.indexOf(userLocal.token) !== -1) {
     error = true;
+    errorDescription = "InvalidToken";
   }
 
 </script>
@@ -20,7 +22,7 @@
 <main>
 
 {#if error}
- <Error errorCode="undefined" />
+ <Error errorCode={errorDescription} />
 {:else}
   {#if userLocal.loggedIn == true}
     <Sample />

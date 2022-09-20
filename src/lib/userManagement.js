@@ -3,7 +3,7 @@ import { writable } from "svelte/store";
 export const user = writable({
     "username": "default",
     "nickname": "H0rsayEater",
-    "token": "261949B892C628B14566EF281056803ECF8F69C4FEFE233602B0F3B479800EFE",
+    "token": "C4F42413475AEE774ADAD47DB3BD96867370D09C1DCBC3880240D7D577038203",
     "loggedIn": true
 });
 
