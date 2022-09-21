@@ -4,7 +4,6 @@
   const increment = () => {
     count += 1
   }
-
   let Logout = () => window.location.assign('http://' + window.location.host);
 </script>
 

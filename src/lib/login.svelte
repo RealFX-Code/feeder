@@ -1,5 +1,12 @@
 <script>
-    import{user}from'./userManagement.js';let userLocal;user.subscribe(value=>{userLocal = value;});
+    import { user } from './userManagement.js';
+    
+    let userLocal; 
+    
+    user.subscribe( value => {
+        userLocal = value;
+    });
+    
     /* Snippet above gets user status and saves it to userLocal. */
 
 </script>
