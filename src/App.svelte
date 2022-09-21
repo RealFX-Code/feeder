@@ -1,45 +1,45 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import Counter from './lib/Counter.svelte'
+  import Feed from './lib/feed.svelte'
+  function HandleURL(event) {
+    let url = event.target.elements.URLinput.value;
+    window.location.assign('https://' + window.location.host + "/feed?URL=" + url);
+  }
+
 </script>
 
 <main>
+
+{#if window.location.pathname == "/feed"}
+  <Feed />
+{:else}
   <div>
-    <a href="https://vitejs.dev" target="_blank"> 
-      <img src="/vite.svg" class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank"> 
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+    <img class="logo" src="/logo-light@1x.png" alt="rx-//RSS">
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+  <h1>Welcome to my RSS client, Add an RSS URL below.</h1>
+  <form on:submit|preventDefault={HandleURL}>
+    <input type="url" id="URLinput" placeholder="https://example.com/index.php?show=rss">
+    <button type="submit">See the feed from URL</button>
+  </form>
+{/if}
 </main>
 
 <style>
   .logo {
-    height: 6em;
+    height: 20em;
     padding: 1.5em;
     will-change: filter;
+    color: #e3e3e3;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+
+  input[type=url] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 1em;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+  button {
+    width: 100%;
   }
-  .read-the-docs {
-    color: #888;
-  }
+
 </style>
