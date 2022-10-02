@@ -17,21 +17,6 @@
         }
     }
 
-    /*
-    function loadXMLDoc() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("contentDiv").innerHTML =
-                this.responseText;
-            }
-        };
-        xhttp.open("GET", RSSurl, true);
-        xhttp.send();
-    }
-
-    loadXMLDoc(); */
-
     fetch(RSSurl)
         .then(response => response.text())
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))

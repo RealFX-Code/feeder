@@ -1,7 +1,5 @@
 # Feeder
 
-!! CURRENTLY DOES NOT WORK WHEN DEPLOYED TO PRODUCTION, I'LL HAVE TO FIX IT. THIS MESSAGE WILL BE GONE WHEN IT'S FIXED.
-
 An open source RSS client. Gets the RSS feed from the specified URL and displays it to the webpage.
 
 Just saying... Some websites won't have their RSS feed working, due to CORS.

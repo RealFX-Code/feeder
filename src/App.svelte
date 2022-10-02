@@ -2,14 +2,17 @@
   import Feed from './lib/feed.svelte';
   function HandleURL(event) {
     let url = event.target.elements.URLinput.value;
-    window.location.assign('https://' + window.location.host + "/feed?URL=" + url);
+    window.location.assign('https://' + window.location.host + "/?URL=" + url);
   }
+
+  // @ts-ignore
+  let URLParameters = (new URL(window.location)).searchParams;
 
 </script>
 
 <main>
-
-{#if window.location.pathname == "/feed"}
+<!-- This error can just be ignored, it's typescript complaining in a non-typescript file. -->
+{#if (new URL(window.location)).searchParams.has("URL")}
   <Feed />
 {:else}
   <div>
@@ -26,6 +29,7 @@
   <br>
   <p><strong>! WARNING !</strong> It is a known bug that some websites just won't work. <strong>! WARNING !</strong></p>
 {/if}
+
 </main>
 
 <style>
