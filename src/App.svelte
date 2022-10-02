@@ -1,5 +1,5 @@
 <script>
-  import Feed from './lib/feed.svelte'
+  import Feed from './lib/feed.svelte';
   function HandleURL(event) {
     let url = event.target.elements.URLinput.value;
     window.location.assign('https://' + window.location.host + "/feed?URL=" + url);
@@ -13,22 +13,44 @@
   <Feed />
 {:else}
   <div>
-    <img class="logo" src="/logo-light@1x.png" alt="rx-//RSS">
+    <!-- Classname says what mode the user prefers, -->
+    <!-- Image suffix says what color the image hero is. -->
+    <img class="logo-dark hero" src="/logo-light@1x.png" alt="rx-//RSS">
+    <img class="logo-light hero" src="/logo-dark@1x.png" alt="rx-//RSS">
   </div>
   <h1>Welcome to my RSS client, Add an RSS URL below.</h1>
   <form on:submit|preventDefault={HandleURL}>
     <input type="url" id="URLinput" placeholder="https://example.com/index.php?show=rss">
     <button type="submit">See the feed from URL</button>
   </form>
+  <br>
+  <p><strong>! WARNING !</strong> It is a known bug that some websites just won't work. <strong>! WARNING !</strong></p>
 {/if}
 </main>
 
 <style>
-  .logo {
+  .hero {
+    display: none;
     height: 20em;
     padding: 1.5em;
     will-change: filter;
-    color: #e3e3e3;
+  }
+
+  @media (prefers-color-scheme: light) {
+    .logo-light {
+      display: unset;
+    }
+    .logo-dark {
+      display: none;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .logo-dark {
+      display: unset;
+    }
+    .logo-light {
+      display: none;
+    }
   }
 
   input[type=url] {

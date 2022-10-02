@@ -15,8 +15,15 @@ cd feeder
 npm install
 ```
 
-To run this app, run either of these  commands...
+To run this app, run either of these commands...
 ```
 npm run dev     # For local development server.
 npm run devhost # For a local development server that's exposed to LAN.
 ```
+
+To build for production...
+```
+npm run build
+```
+This will put all build files in ./dist/
+Simply host all files in ./dist and you'll officially have feeder runnning!

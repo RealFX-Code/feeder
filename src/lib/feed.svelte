@@ -17,13 +17,12 @@
         }
     }
 
-    console.log(RSSurl);
-
+    /*
     function loadXMLDoc() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("demo").innerHTML =
+                document.getElementById("contentDiv").innerHTML =
                 this.responseText;
             }
         };
@@ -31,13 +30,44 @@
         xhttp.send();
     }
 
-    loadXMLDoc();
+    loadXMLDoc(); */
 
+    fetch(RSSurl)
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => {
+            console.log(data);
+            const items = data.querySelectorAll("item");
+            let html = '';
+            items.forEach(el => {
+                html += `
+                    <article>
+                        <h2>
+                            <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
+                                ${el.querySelector("title").innerHTML}
+                            </a>
+                        </h2>
+                        <br>
+                    </article>
+                `;
+            });
+    document.getElementById("contentDiv").innerHTML = html;
+    });
 </script>
 
 <div class="root">
-    <h1>{RSSurl}</h1>
-    <div class="contentDiv">
-        <h1>No content yet...</h1>
+    <h1><strong>{RSSurl}</strong></h1>
+    <div id="contentDiv">
+        <h1>Loading content...</h1>
+        <br>
     </div>
 </div>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
