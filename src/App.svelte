@@ -18,8 +18,8 @@
   <div>
     <!-- Classname says what mode the user prefers, -->
     <!-- Image suffix says what color the image hero is. -->
-    <img class="logo-dark hero" src="/logo-light@1x.png" alt="rx-//RSS">
-    <img class="logo-light hero" src="/logo-dark@1x.png" alt="rx-//RSS">
+    <img class="logo-dark hero" src="./logo-light@1x.png" alt="rx-//RSS">
+    <img class="logo-light hero" src="./logo-dark@1x.png" alt="rx-//RSS">
   </div>
   <h1>Welcome to my RSS client, Add an RSS URL below.</h1>
   <form on:submit|preventDefault={HandleURL}>
