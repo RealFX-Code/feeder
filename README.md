@@ -2,9 +2,12 @@
 
 An open source RSS client. Gets the RSS feed from the specified URL and displays it to the webpage.
 
+Just saying... Some websites won't have their RSS feed working, due to CORS.
+Unless you wanna write your own middleware, it's a feature. Very intentional.
+
 # Requirements
 
-I don't know, I run it with `node@v18.9.0`.
+I don't know, I run it with `node@v18.9.0` without any issues.
 
 # Usage
 
