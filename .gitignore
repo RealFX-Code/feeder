@@ -15,7 +15,6 @@ certs
 
 # Editor directories and files
 .vscode/*
-projects/
 !.vscode/extensions.json
 .idea
 .DS_Store
