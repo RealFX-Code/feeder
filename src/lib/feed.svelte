@@ -42,6 +42,9 @@
 
 <div class="root">
     <h1><strong>{RSSurl}</strong></h1>
+    <div class="spacer">
+        <hr>
+    </div>
     <div id="contentDiv">
         <h1>Loading content...</h1>
         <br>
@@ -53,6 +56,11 @@
     * {
         margin: 0;
         padding: 0;
+    }
+
+    div.spacer {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
     }
 
 </style>

@@ -12,6 +12,7 @@ dist
 dist-ssr
 certs
 *.local
+public/sample.rss
 
 # Editor directories and files
 .vscode/*
