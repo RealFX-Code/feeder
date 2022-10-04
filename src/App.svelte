@@ -1,12 +1,10 @@
 <script>
+
 // @ts-nocheck
 
   import Feed from './lib/feed.svelte';
 
   import Form from './lib/form.svelte';
-
-  // @ts-ignore
-  let URLParameters = (new URL(window.location)).searchParams;
 
 </script>
 
