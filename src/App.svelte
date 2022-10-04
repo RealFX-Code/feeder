@@ -20,9 +20,3 @@
 {/if}
 
 </main>
-
-<style>
-
-  /* unused, For now. */
-
-</style>

@@ -6,13 +6,7 @@
 
   function HandleURL(event) {
     let url = event.target.elements.URLinput.value;
-    if (window.location.protocol == 'https:') {
-      window.location.assign('https://' + window.location.host + "/?URL=" + url);
-    } else if (window.location.protocol == 'http:') {
-      window.location.assign('http://' + window.location.host + "/?URL=" + url);
-    } else {
-      alert('You\'re not using HTTP or HTTPS, Use something more conventional for this to work.');
-    }
+    window.location.assign(window.location.protocol + '//' + window.location.host + '/?URL=' + url);
   }
 
 
